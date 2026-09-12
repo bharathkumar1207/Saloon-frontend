@@ -1,1 +1,63 @@
 @import "tailwindcss";
+
+/*
+  Vismaya brand palette — sampled from the logo (copper/gold "V" + deep plum
+  silhouette). This is the only place colors are defined; components should
+  use these tokens (bg-primary, text-foreground, border-border, etc.)
+  instead of Tailwind's default gray/indigo/etc. palettes.
+*/
+@theme {
+  --color-primary-50: #fbf1e7;
+  --color-primary-100: #f3dcc0;
+  --color-primary-200: #eac59a;
+  --color-primary-300: #e1ad73;
+  --color-primary-400: #d68b48;
+  --color-primary-500: #c37739;
+  --color-primary-600: #aa632d;
+  --color-primary-700: #8f5726;
+  --color-primary-800: #714420;
+  --color-primary-900: #4f2f17;
+  --color-primary: var(--color-primary-500);
+
+  --color-ink-50: #f2eef3;
+  --color-ink-100: #e1d8e3;
+  --color-ink-200: #c2afc7;
+  --color-ink-300: #9b7da3;
+  --color-ink-400: #6e4c79;
+  --color-ink-500: #4a2e52;
+  --color-ink-600: #331b3a;
+  --color-ink-700: #2f1433;
+  --color-ink-800: #22102a;
+  --color-ink-900: #170a1c;
+  --color-ink: var(--color-ink-700);
+
+  --color-background: #fbf7f2;
+  --color-surface: #ffffff;
+  --color-border: #e9dfd3;
+  --color-foreground: var(--color-ink-800);
+  --color-muted: #8a7b72;
+}
+
+body {
+  background-color: var(--color-background);
+  color: var(--color-foreground);
+}
+
+@keyframes marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-marquee {
+  animation: marquee 40s linear infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-marquee {
+    animation: none;
+  }
+}
