@@ -6,7 +6,7 @@ import { RoutesManager } from "./setup/routes-manager";
 
 createRoot(document.getElementById("root")!).render(
   <StrictMode>
-    <BrowserRouter>
+    <BrowserRouter basename={import.meta.env.BASE_URL}>
       <RoutesManager />
     </BrowserRouter>
   </StrictMode>,
