@@ -61,3 +61,24 @@ body {
     animation: none;
   }
 }
+
+/*
+  Print-only bill receipt. The receipt markup is always in the DOM (hidden
+  on screen via .print-receipt's own classes) and this media query is what
+  makes ONLY it appear when the browser's print dialog opens — everything
+  else on the page is hidden for that print job.
+*/
+@media print {
+  body * {
+    visibility: hidden;
+  }
+  .print-receipt,
+  .print-receipt * {
+    visibility: visible;
+  }
+  .print-receipt {
+    position: fixed;
+    inset: 0;
+    width: 100%;
+  }
+}

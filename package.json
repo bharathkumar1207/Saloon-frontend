@@ -2,12 +2,19 @@
   "name": "saloon-frontend",
   "private": true,
   "version": "0.0.0",
+  "description": "Vismaya Unisex Salon — public website and management portal",
+  "author": "Vismaya Unisex Salon",
   "type": "module",
+  "main": "electron/main.cjs",
   "scripts": {
     "dev": "vite",
     "build": "tsc -b && vite build",
     "lint": "oxlint",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "build:public": "tsc -b && vite build --outDir dist/public",
+    "build:electron-renderer": "tsc -b && vite build --base=/ --outDir electron-renderer",
+    "clean:release": "node -e \"require('fs').rmSync('dist',{recursive:true,force:true})\"",
+    "release": "npm run clean:release && npm run build:public && npm run build:electron-renderer && electron-builder --publish never"
   },
   "dependencies": {
     "react": "^19.2.8",
@@ -20,9 +27,34 @@
     "@types/react": "^19.2.18",
     "@types/react-dom": "^19.2.7",
     "@vitejs/plugin-react": "^6.1.1",
+    "electron": "^44.9.1",
+    "electron-builder": "^26.15.3",
     "oxlint": "^1.81.0",
     "tailwindcss": "^4.3.3",
     "typescript": "~6.0.2",
     "vite": "^8.3.0"
+  },
+  "allowScripts": {
+    "electron-winstaller@5.4.0": true
+  },
+  "build": {
+    "appId": "com.vismaya.management",
+    "productName": "Vismaya Management",
+    "directories": {
+      "output": "dist/app"
+    },
+    "files": [
+      "electron/**/*",
+      "electron-renderer/**/*"
+    ],
+    "win": {
+      "target": "dir"
+    },
+    "linux": {
+      "target": "dir"
+    },
+    "mac": {
+      "target": "dir"
+    }
   }
 }

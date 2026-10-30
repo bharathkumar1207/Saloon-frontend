@@ -10,6 +10,13 @@ export const websiteRoutes = {
 export const managementRoutes = {
   login: "/admin/login",
   dashboard: "/admin/dashboard",
+  billing: "/admin/billing",
+  bills: "/admin/bills",
+  billDetailPattern: "/admin/bills/:id",
+  billDetail: (id: string) => `/admin/bills/${id}`,
+  appointments: "/admin/appointments",
+  services: "/admin/services",
   employees: "/admin/employees",
-  finance: "/admin/finance",
+  portalUsers: "/admin/portal-users",
+  expenses: "/admin/expenses",
 } as const;

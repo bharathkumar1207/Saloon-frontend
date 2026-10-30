@@ -10,6 +10,7 @@ lerna-debug.log*
 node_modules
 dist
 dist-ssr
+electron-renderer
 *.local
 
 # Editor directories and files
