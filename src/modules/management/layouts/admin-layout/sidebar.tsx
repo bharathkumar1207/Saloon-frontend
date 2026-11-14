@@ -1,10 +1,13 @@
 import { NavLink } from "react-router-dom";
 import { managementRoutes } from "../../../../setup/routes";
 import { useAuth } from "../../auth/auth-context";
+import logo from "../../../../assets/logo.png";
 
 const navLinkClass = ({ isActive }: { isActive: boolean }) =>
-  `rounded-md px-3 py-2 text-sm font-medium ${
-    isActive ? "bg-primary-50 text-primary-700" : "text-muted hover:bg-background"
+  `border-l-2 px-3 py-2 text-sm font-medium transition ${
+    isActive
+      ? "border-gold-500 bg-ink-900 text-background"
+      : "border-transparent text-muted hover:bg-background"
   }`;
 
 export function Sidebar() {
@@ -13,12 +16,17 @@ export function Sidebar() {
 
   return (
     <aside className="flex w-60 shrink-0 flex-col border-r border-border bg-surface p-4">
-      <div className="px-2 pb-4">
-        <p className="text-lg font-semibold text-foreground">Vismaya</p>
-        <p className="text-xs text-muted">Management Portal</p>
+      <div className="flex items-center gap-2 border-b border-border px-2 pb-4">
+        <img src={logo} alt="Vismaya" className="h-12 w-auto shrink-0" />
+        <div>
+          <p className="font-display text-sm leading-tight font-semibold text-foreground">
+            Sri Lakshmi Varahi Enterprises
+          </p>
+          <p className="eyebrow mt-1 text-silver-600">Management Portal</p>
+        </div>
       </div>
 
-      <nav className="flex flex-1 flex-col gap-1">
+      <nav className="flex flex-1 flex-col gap-1 pt-4">
         <NavLink to={managementRoutes.dashboard} className={navLinkClass}>
           Dashboard
         </NavLink>
@@ -55,7 +63,7 @@ export function Sidebar() {
         <button
           type="button"
           onClick={logout}
-          className="mt-2 w-full rounded-md px-3 py-2 text-left text-sm font-medium text-muted hover:bg-background"
+          className="mt-2 w-full px-3 py-2 text-left text-sm font-medium text-muted hover:bg-background"
         >
           Log out
         </button>

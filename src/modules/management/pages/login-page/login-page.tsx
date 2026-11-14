@@ -28,8 +28,11 @@ export function LoginPage() {
 
   return (
     <section className="flex min-h-screen items-center justify-center bg-background px-4">
-      <div className="w-full max-w-sm rounded-lg border border-border bg-surface p-8 shadow-sm">
-        <h1 className="text-xl font-semibold text-foreground">Management Login</h1>
+      <div className="w-full max-w-sm border border-border bg-surface p-8">
+        <p className="eyebrow text-gold-600">Vismaya</p>
+        <h1 className="font-display mt-2 text-xl font-semibold text-foreground">
+          Management Login
+        </h1>
         <p className="mt-1 text-sm text-muted">Sign in to the Vismaya management portal.</p>
 
         <form onSubmit={handleSubmit} className="mt-6 flex flex-col gap-4">
@@ -43,7 +46,7 @@ export function LoginPage() {
               required
               value={email}
               onChange={(event) => setEmail(event.target.value)}
-              className="mt-1 w-full rounded-md border border-border bg-surface px-3 py-2 text-sm text-foreground outline-none focus:border-primary"
+              className="mt-1 w-full border border-border bg-surface px-3 py-2 text-sm text-foreground outline-none focus:border-primary"
             />
           </div>
           <div>
@@ -56,7 +59,7 @@ export function LoginPage() {
               required
               value={password}
               onChange={(event) => setPassword(event.target.value)}
-              className="mt-1 w-full rounded-md border border-border bg-surface px-3 py-2 text-sm text-foreground outline-none focus:border-primary"
+              className="mt-1 w-full border border-border bg-surface px-3 py-2 text-sm text-foreground outline-none focus:border-primary"
             />
           </div>
 
@@ -65,7 +68,7 @@ export function LoginPage() {
           <button
             type="submit"
             disabled={isSubmitting}
-            className="rounded-md bg-primary px-4 py-2 text-sm font-medium text-surface transition hover:bg-primary-600 disabled:opacity-60"
+            className="btn-premium w-full bg-primary text-surface hover:bg-primary-600 disabled:opacity-60"
           >
             {isSubmitting ? "Signing in…" : "Sign In"}
           </button>

@@ -14,7 +14,10 @@ export function Testimonials() {
   return (
     <section className="py-16">
       <div className="mx-auto max-w-6xl px-4">
-        <h2 className="text-center text-2xl font-semibold">What Our Clients Say</h2>
+        <p className="eyebrow text-center text-gold-600">Testimonials</p>
+        <h2 className="font-display mt-2 text-center text-2xl font-semibold sm:text-3xl">
+          What Our Clients Say
+        </h2>
         <p className="mt-2 text-center text-sm text-muted">
           Sample reviews — real ones coming soon
         </p>
@@ -24,7 +27,7 @@ export function Testimonials() {
             {loopedTestimonials.map((testimonial, index) => (
               <blockquote
                 key={`${testimonial.id}-${index}`}
-                className="w-72 shrink-0 rounded-lg border border-border bg-surface p-6 text-sm text-muted"
+                className="w-72 shrink-0 border border-border bg-surface p-6 text-sm text-muted"
               >
                 <p>&ldquo;{testimonial.quote}&rdquo;</p>
                 <footer className="mt-3 font-medium text-foreground">{testimonial.name}</footer>

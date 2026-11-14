@@ -20,7 +20,8 @@ export function ContactPage() {
   return (
     <section className="mx-auto grid max-w-6xl items-start gap-10 px-4 py-16 md:grid-cols-2">
       <div>
-        <h1 className="text-3xl font-semibold">Contact Us</h1>
+        <p className="eyebrow text-gold-600">Get In Touch</p>
+        <h1 className="font-display mt-2 text-3xl font-semibold sm:text-4xl">Contact Us</h1>
         <p className="mt-2 text-muted">
           Have a question? Send us a message and we'll get back to you.
         </p>
@@ -37,7 +38,7 @@ export function ContactPage() {
           <div>
             <dt className="font-medium text-foreground">Email (placeholder)</dt>
             <dd>
-              <a href={`mailto:${CONTACT_EMAIL}`} className="text-primary-700 hover:underline">
+              <a href={`mailto:${CONTACT_EMAIL}`} className="text-foreground hover:text-gold-600 hover:underline">
                 {CONTACT_EMAIL}
               </a>
             </dd>
@@ -83,10 +84,7 @@ export function ContactPage() {
               className={inputClasses}
             />
           </div>
-          <button
-            type="submit"
-            className="rounded-md bg-primary px-6 py-3 font-medium text-surface transition hover:bg-primary-600"
-          >
+          <button type="submit" className="btn-premium bg-primary text-surface hover:bg-primary-600">
             Send Us a Mail
           </button>
         </form>

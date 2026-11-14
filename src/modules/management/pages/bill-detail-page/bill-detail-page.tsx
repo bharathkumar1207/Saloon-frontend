@@ -40,28 +40,28 @@ export function BillDetailPage() {
     <div className="max-w-2xl">
       <div className="flex items-start justify-between gap-4">
         <div>
-          <h1 className="text-2xl font-semibold text-foreground">{bill.bill_number}</h1>
+          <h1 className="font-display text-2xl font-semibold text-foreground">{bill.bill_number}</h1>
           <p className="mt-1 text-sm text-muted">{new Date(bill.created_at).toLocaleString()}</p>
         </div>
         <div className="flex shrink-0 gap-2">
           <button
             type="button"
             onClick={() => setShowPreview(true)}
-            className="rounded-md border border-border bg-surface px-4 py-2 text-sm font-medium text-foreground transition hover:bg-background"
+            className="border border-border bg-surface px-4 py-2 text-sm font-medium text-foreground transition hover:bg-background"
           >
             Preview Bill
           </button>
           <button
             type="button"
             onClick={() => window.print()}
-            className="rounded-md bg-primary px-4 py-2 text-sm font-medium text-surface transition hover:bg-primary-600"
+            className="btn-premium bg-primary text-surface hover:bg-primary-600"
           >
             Print Bill
           </button>
         </div>
       </div>
 
-      <div className="mt-6 rounded-lg border border-border bg-surface">
+      <div className="mt-6 border border-border bg-surface">
         <table className="w-full text-sm">
           <thead>
             <tr className="border-b border-border text-left text-muted">

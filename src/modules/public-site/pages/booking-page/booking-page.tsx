@@ -21,10 +21,8 @@ function WaitlistForm() {
 
   return (
     <section className="mx-auto max-w-xl px-4 py-16 text-center">
-      <span className="rounded-full bg-primary-50 px-4 py-1 text-xs font-semibold tracking-wide text-primary-700 uppercase">
-        Opening Soon
-      </span>
-      <h1 className="mt-4 text-3xl font-semibold">We're Not Open Yet</h1>
+      <span className="eyebrow text-gold-600">Opening Soon</span>
+      <h1 className="font-display mt-4 text-3xl font-semibold sm:text-4xl">We're Not Open Yet</h1>
       <p className="mt-2 text-muted">
         Vismaya is getting ready to open in Visakhapatnam. Leave your details and we'll notify
         you the moment we're accepting appointments.
@@ -74,10 +72,7 @@ function WaitlistForm() {
             ))}
           </select>
         </div>
-        <button
-          type="submit"
-          className="rounded-md bg-primary px-6 py-3 font-medium text-surface transition hover:bg-primary-600"
-        >
+        <button type="submit" className="btn-premium bg-primary text-surface hover:bg-primary-600">
           Notify Me at Launch
         </button>
       </form>
@@ -103,7 +98,8 @@ function AppointmentForm() {
 
   return (
     <section className="mx-auto max-w-xl px-4 py-16">
-      <h1 className="text-3xl font-semibold">Book an Appointment</h1>
+      <p className="eyebrow text-gold-600">Reserve Your Visit</p>
+      <h1 className="font-display mt-2 text-3xl font-semibold sm:text-4xl">Book an Appointment</h1>
       <p className="mt-2 text-muted">
         Fill in your details and preferred time — we'll confirm by phone or email.
       </p>
@@ -182,10 +178,7 @@ function AppointmentForm() {
             className={inputClasses}
           />
         </div>
-        <button
-          type="submit"
-          className="rounded-md bg-primary px-6 py-3 font-medium text-surface transition hover:bg-primary-600"
-        >
+        <button type="submit" className="btn-premium bg-primary text-surface hover:bg-primary-600">
           Request Appointment
         </button>
       </form>

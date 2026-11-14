@@ -42,24 +42,26 @@ export function DashboardPage() {
   return (
     <div className="flex flex-col gap-8">
       <div>
-        <h1 className="text-2xl font-semibold text-foreground">Welcome back, {user?.name}</h1>
+        <h1 className="font-display text-2xl font-semibold text-foreground">Welcome back, {user?.name}</h1>
         <p className="mt-1 text-sm text-muted">Here's what's happening today.</p>
       </div>
 
       <div className="grid gap-4 sm:grid-cols-3">
-        <div className="rounded-lg border border-border bg-surface p-5">
-          <p className="text-sm text-muted">Today's Revenue</p>
-          <p className="mt-1 text-2xl font-semibold text-foreground">
+        <div className="border border-border bg-surface p-5">
+          <p className="eyebrow text-muted">Today's Revenue</p>
+          <p className="font-display mt-2 text-2xl font-semibold text-foreground">
             ₹{todaysRevenue.toFixed(2)}
           </p>
         </div>
-        <div className="rounded-lg border border-border bg-surface p-5">
-          <p className="text-sm text-muted">Today's Bills</p>
-          <p className="mt-1 text-2xl font-semibold text-foreground">{todaysBills.length}</p>
+        <div className="border border-border bg-surface p-5">
+          <p className="eyebrow text-muted">Today's Bills</p>
+          <p className="font-display mt-2 text-2xl font-semibold text-foreground">
+            {todaysBills.length}
+          </p>
         </div>
-        <div className="rounded-lg border border-border bg-surface p-5">
-          <p className="text-sm text-muted">Today's Appointments</p>
-          <p className="mt-1 text-2xl font-semibold text-foreground">
+        <div className="border border-border bg-surface p-5">
+          <p className="eyebrow text-muted">Today's Appointments</p>
+          <p className="font-display mt-2 text-2xl font-semibold text-foreground">
             {todaysAppointments.length}
           </p>
         </div>
@@ -68,21 +70,21 @@ export function DashboardPage() {
       <div className="flex gap-3">
         <Link
           to={managementRoutes.billing}
-          className="rounded-md bg-primary px-4 py-2 text-sm font-medium text-surface transition hover:bg-primary-600"
+          className="btn-premium bg-primary text-surface hover:bg-primary-600"
         >
           + New Bill
         </Link>
         <Link
           to={managementRoutes.appointments}
-          className="rounded-md border border-border bg-surface px-4 py-2 text-sm font-medium text-foreground transition hover:bg-background"
+          className="border border-border bg-surface px-4 py-2 text-sm font-medium text-foreground transition hover:bg-background"
         >
           + New Appointment
         </Link>
       </div>
 
       <div className="grid gap-6 lg:grid-cols-2">
-        <div className="rounded-lg border border-border bg-surface p-5">
-          <h2 className="font-semibold text-foreground">Revenue by Employee</h2>
+        <div className="border border-border bg-surface p-5">
+          <h2 className="font-display font-semibold text-foreground">Revenue by Employee</h2>
           <table className="mt-3 w-full text-sm">
             <tbody>
               {revenue.map((row) => (
@@ -98,8 +100,8 @@ export function DashboardPage() {
           </table>
         </div>
 
-        <div className="rounded-lg border border-border bg-surface p-5">
-          <h2 className="font-semibold text-foreground">Recent Bills</h2>
+        <div className="border border-border bg-surface p-5">
+          <h2 className="font-display font-semibold text-foreground">Recent Bills</h2>
           <table className="mt-3 w-full text-sm">
             <tbody>
               {bills.slice(0, 8).map((bill) => (

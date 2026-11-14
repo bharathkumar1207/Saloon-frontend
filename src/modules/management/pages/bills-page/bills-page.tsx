@@ -23,16 +23,16 @@ export function BillsPage() {
   return (
     <div>
       <div className="flex items-center justify-between">
-        <h1 className="text-2xl font-semibold text-foreground">Bills</h1>
+        <h1 className="font-display text-2xl font-semibold text-foreground">Bills</h1>
         <Link
           to={managementRoutes.billing}
-          className="rounded-md bg-primary px-4 py-2 text-sm font-medium text-surface transition hover:bg-primary-600"
+          className="btn-premium bg-primary text-surface hover:bg-primary-600"
         >
           + New Bill
         </Link>
       </div>
 
-      <div className="mt-6 overflow-x-auto rounded-lg border border-border bg-surface">
+      <div className="mt-6 overflow-x-auto border border-border bg-surface">
         <table className="w-full text-sm">
           <thead>
             <tr className="border-b border-border text-left text-muted">

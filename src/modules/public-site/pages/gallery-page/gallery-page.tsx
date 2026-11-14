@@ -21,7 +21,8 @@ const galleryPhotos = [
 export function GalleryPage() {
   return (
     <section className="mx-auto max-w-6xl px-4 py-16">
-      <h1 className="text-3xl font-semibold">Gallery</h1>
+      <p className="eyebrow text-gold-600">Our Space</p>
+      <h1 className="font-display mt-2 text-3xl font-semibold sm:text-4xl">Gallery</h1>
       <p className="mt-2 text-muted">More photos of our space and work coming soon.</p>
 
       <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
@@ -30,7 +31,7 @@ export function GalleryPage() {
             key={photo.src}
             src={photo.src}
             alt={photo.alt}
-            className="aspect-square w-full rounded-lg object-cover"
+            className="aspect-square w-full object-cover"
           />
         ))}
       </div>

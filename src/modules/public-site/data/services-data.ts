@@ -17,6 +17,8 @@ export type ServiceCategory = {
   name: string;
   image?: string;
   items: ServiceItem[];
+  /** Special accent: gold is reserved for women's categories, silver for men's. Omit for unisex/mixed categories. */
+  accent?: "gold" | "silver";
 };
 
 export const serviceCategories: ServiceCategory[] = [
@@ -24,6 +26,7 @@ export const serviceCategories: ServiceCategory[] = [
     id: "mens-hair",
     name: "Men's Hair & Grooming",
     image: categoryMensHair,
+    accent: "silver",
     items: [
       { name: "Haircut – Basic", price: "₹299" },
       { name: "Haircut – Premium Styling", price: "₹399" },
@@ -46,6 +49,7 @@ export const serviceCategories: ServiceCategory[] = [
     id: "womens-hair",
     name: "Women's Hair",
     image: categoryWomensHair,
+    accent: "gold",
     items: [
       { name: "Haircut – Basic", price: "₹399" },
       { name: "Haircut – Layer / U / V", price: "₹499" },

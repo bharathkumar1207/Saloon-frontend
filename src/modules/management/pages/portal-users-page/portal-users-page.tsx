@@ -3,7 +3,7 @@ import * as usersApi from "../../../../apis/users-api";
 import { ApiError } from "../../../../apis/api-client";
 
 const inputClasses =
-  "mt-1 w-full rounded-md border border-border bg-surface px-3 py-2 text-sm text-foreground outline-none focus:border-primary";
+  "mt-1 w-full border border-border bg-surface px-3 py-2 text-sm text-foreground outline-none focus:border-primary";
 
 const emptyForm = {
   name: "",
@@ -68,13 +68,13 @@ export function PortalUsersPage() {
   return (
     <div className="grid gap-6 lg:grid-cols-[1fr_320px]">
       <div>
-        <h1 className="text-2xl font-semibold text-foreground">Portal Users</h1>
+        <h1 className="font-display text-2xl font-semibold text-foreground">Portal Users</h1>
         <p className="mt-1 text-sm text-muted">
           Who can log into this management portal. For the full staff roster (salary, Aadhar,
           address, etc.), see the Employees page.
         </p>
 
-        <div className="mt-6 overflow-x-auto rounded-lg border border-border bg-surface">
+        <div className="mt-6 overflow-x-auto border border-border bg-surface">
           <table className="w-full text-sm">
             <thead>
               <tr className="border-b border-border text-left text-muted">
@@ -102,7 +102,7 @@ export function PortalUsersPage() {
                         onChange={(event) =>
                           changeRole(user, event.target.value as usersApi.UserRole)
                         }
-                        className="rounded-md border border-border bg-surface px-2 py-1 text-xs text-foreground outline-none focus:border-primary"
+                        className="border border-border bg-surface px-2 py-1 text-xs text-foreground outline-none focus:border-primary"
                       >
                         <option value="employee">Employee</option>
                         <option value="manager">Manager</option>
@@ -125,8 +125,8 @@ export function PortalUsersPage() {
         </div>
       </div>
 
-      <div className="h-fit rounded-lg border border-border bg-surface p-5">
-        <h2 className="font-semibold text-foreground">Add Portal User</h2>
+      <div className="h-fit border border-border bg-surface p-5">
+        <h2 className="font-display font-semibold text-foreground">Add Portal User</h2>
         <form onSubmit={handleCreate} className="mt-4 flex flex-col gap-3">
           <label className="text-sm font-medium text-foreground">
             Name
@@ -181,7 +181,7 @@ export function PortalUsersPage() {
           <button
             type="submit"
             disabled={isSubmitting}
-            className="rounded-md bg-primary px-4 py-2 text-sm font-medium text-surface transition hover:bg-primary-600 disabled:opacity-60"
+            className="btn-premium bg-primary text-surface hover:bg-primary-600 disabled:opacity-60"
           >
             {isSubmitting ? "Adding…" : "Add Portal User"}
           </button>

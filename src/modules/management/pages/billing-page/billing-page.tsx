@@ -16,7 +16,7 @@ type CartItem = {
 };
 
 const inputClasses =
-  "mt-1 w-full rounded-md border border-border bg-surface px-3 py-2 text-sm text-foreground outline-none focus:border-primary";
+  "mt-1 w-full border border-border bg-surface px-3 py-2 text-sm text-foreground outline-none focus:border-primary";
 
 export function BillingPage() {
   const [services, setServices] = useState<servicesApi.Service[]>([]);
@@ -145,7 +145,7 @@ export function BillingPage() {
   return (
     <div className="grid gap-6 lg:grid-cols-[1fr_380px]">
       <div>
-        <h1 className="text-2xl font-semibold text-foreground">New Bill</h1>
+        <h1 className="font-display text-2xl font-semibold text-foreground">New Bill</h1>
         <p className="mt-1 text-sm text-muted">Tap a service to add it to the bill.</p>
 
         <div className="mt-6 flex flex-col gap-8">
@@ -158,7 +158,7 @@ export function BillingPage() {
                     key={service.id}
                     type="button"
                     onClick={() => addToCart(service)}
-                    className="flex items-center gap-3 rounded-md border border-border bg-surface p-3 text-left transition hover:border-primary hover:bg-primary-50"
+                    className="flex items-center gap-3 border border-border bg-surface p-3 text-left transition hover:border-primary hover:bg-primary-50"
                   >
                     {service.image_url ? (
                       <img
@@ -184,15 +184,15 @@ export function BillingPage() {
         </div>
       </div>
 
-      <div className="h-fit rounded-lg border border-border bg-surface p-5">
-        <h2 className="font-semibold text-foreground">Current Bill</h2>
+      <div className="h-fit border border-border bg-surface p-5">
+        <h2 className="font-display font-semibold text-foreground">Current Bill</h2>
 
         <div className="mt-4 flex flex-col gap-3">
           {cart.length === 0 ? (
             <p className="text-sm text-muted">No items yet.</p>
           ) : (
             cart.map((item) => (
-              <div key={item.key} className="rounded-md border border-border p-3">
+              <div key={item.key} className="border border-border p-3">
                 <div className="flex items-start justify-between gap-2">
                   <p className="text-sm font-medium text-foreground">{item.serviceName}</p>
                   <button
@@ -207,7 +207,7 @@ export function BillingPage() {
                   <select
                     value={item.employeeId}
                     onChange={(event) => updateCartItem(item.key, { employeeId: event.target.value })}
-                    className="flex-1 rounded-md border border-border bg-surface px-2 py-1 text-xs text-foreground outline-none focus:border-primary"
+                    className="flex-1 border border-border bg-surface px-2 py-1 text-xs text-foreground outline-none focus:border-primary"
                   >
                     <option value="">Select employee</option>
                     {employees.map((employee) => (
@@ -223,7 +223,7 @@ export function BillingPage() {
                     onChange={(event) =>
                       updateCartItem(item.key, { quantity: Number(event.target.value) || 1 })
                     }
-                    className="w-14 rounded-md border border-border bg-surface px-2 py-1 text-xs text-foreground outline-none focus:border-primary"
+                    className="w-14 border border-border bg-surface px-2 py-1 text-xs text-foreground outline-none focus:border-primary"
                   />
                   <span className="w-20 text-right text-sm font-medium text-foreground">
                     ₹{(item.price * item.quantity).toFixed(2)}
@@ -286,7 +286,7 @@ export function BillingPage() {
 
         {error ? <p className="mt-3 text-sm text-red-600">{error}</p> : null}
         {completedBill ? (
-          <div className="mt-3 rounded-md border border-green-200 bg-green-50 p-3">
+          <div className="mt-3 border border-green-200 bg-green-50 p-3">
             <p className="text-sm font-medium text-green-700">
               Bill {completedBill.billNumber} created successfully.
             </p>
@@ -294,14 +294,14 @@ export function BillingPage() {
               <button
                 type="button"
                 onClick={() => setShowPreview(true)}
-                className="rounded-md border border-border bg-surface px-3 py-1.5 text-xs font-medium text-foreground transition hover:bg-background"
+                className="border border-border bg-surface px-3 py-1.5 text-xs font-medium text-foreground transition hover:bg-background"
               >
                 Preview Bill
               </button>
               <button
                 type="button"
                 onClick={() => window.print()}
-                className="rounded-md bg-primary px-3 py-1.5 text-xs font-medium text-surface transition hover:bg-primary-600"
+                className="bg-primary px-3 py-1.5 text-xs font-medium text-surface transition hover:bg-primary-600"
               >
                 Print Bill
               </button>
@@ -313,7 +313,7 @@ export function BillingPage() {
           type="button"
           onClick={handleCheckout}
           disabled={isSubmitting}
-          className="mt-4 w-full rounded-md bg-primary px-4 py-3 text-sm font-medium text-surface transition hover:bg-primary-600 disabled:opacity-60"
+          className="btn-premium mt-4 w-full bg-primary text-surface hover:bg-primary-600 disabled:opacity-60"
         >
           {isSubmitting ? "Processing…" : "Complete Bill"}
         </button>

@@ -4,7 +4,7 @@ import { ApiError } from "../../../../apis/api-client";
 import { resolveImageUrl } from "../../../../apis/api-client";
 
 const inputClasses =
-  "mt-1 w-full rounded-md border border-border bg-surface px-3 py-2 text-sm text-foreground outline-none focus:border-primary";
+  "mt-1 w-full border border-border bg-surface px-3 py-2 text-sm text-foreground outline-none focus:border-primary";
 
 const emptyForm = {
   id: null as string | null,
@@ -116,9 +116,9 @@ export function ServicesPage() {
   return (
     <div className="grid gap-6 lg:grid-cols-[1fr_320px]">
       <div>
-        <h1 className="text-2xl font-semibold text-foreground">Services</h1>
+        <h1 className="font-display text-2xl font-semibold text-foreground">Services</h1>
 
-        <div className="mt-6 overflow-x-auto rounded-lg border border-border bg-surface">
+        <div className="mt-6 overflow-x-auto border border-border bg-surface">
           <table className="w-full text-sm">
             <thead>
               <tr className="border-b border-border text-left text-muted">
@@ -189,8 +189,8 @@ export function ServicesPage() {
         </div>
       </div>
 
-      <div className="h-fit rounded-lg border border-border bg-surface p-5">
-        <h2 className="font-semibold text-foreground">{form.id ? "Edit Service" : "Add Service"}</h2>
+      <div className="h-fit border border-border bg-surface p-5">
+        <h2 className="font-display font-semibold text-foreground">{form.id ? "Edit Service" : "Add Service"}</h2>
         <form onSubmit={handleSubmit} className="mt-4 flex flex-col gap-3">
           <div>
             <span className="text-sm font-medium text-foreground">Image</span>
@@ -266,7 +266,7 @@ export function ServicesPage() {
             <button
               type="submit"
               disabled={isSubmitting || isUploading}
-              className="flex-1 rounded-md bg-primary px-4 py-2 text-sm font-medium text-surface transition hover:bg-primary-600 disabled:opacity-60"
+              className="btn-premium flex-1 bg-primary text-surface hover:bg-primary-600 disabled:opacity-60"
             >
               {isSubmitting ? "Saving…" : form.id ? "Update Service" : "Add Service"}
             </button>
@@ -274,7 +274,7 @@ export function ServicesPage() {
               <button
                 type="button"
                 onClick={resetForm}
-                className="rounded-md border border-border bg-surface px-4 py-2 text-sm font-medium text-foreground transition hover:bg-background"
+                className="border border-border bg-surface px-4 py-2 text-sm font-medium text-foreground transition hover:bg-background"
               >
                 Cancel
               </button>

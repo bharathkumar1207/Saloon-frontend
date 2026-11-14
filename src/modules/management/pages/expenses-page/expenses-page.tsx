@@ -3,7 +3,7 @@ import * as expensesApi from "../../../../apis/expenses-api";
 import { ApiError } from "../../../../apis/api-client";
 
 const inputClasses =
-  "mt-1 w-full rounded-md border border-border bg-surface px-3 py-2 text-sm text-foreground outline-none focus:border-primary";
+  "mt-1 w-full border border-border bg-surface px-3 py-2 text-sm text-foreground outline-none focus:border-primary";
 
 const categories: expensesApi.ExpenseCategory[] = [
   "rent",
@@ -77,13 +77,13 @@ export function ExpensesPage() {
     <div className="grid gap-6 lg:grid-cols-[1fr_320px]">
       <div>
         <div className="flex items-center justify-between">
-          <h1 className="text-2xl font-semibold text-foreground">Expenses</h1>
+          <h1 className="font-display text-2xl font-semibold text-foreground">Expenses</h1>
           <p className="text-sm text-muted">
             Total: <span className="font-semibold text-foreground">₹{totalExpenses.toFixed(2)}</span>
           </p>
         </div>
 
-        <div className="mt-6 overflow-x-auto rounded-lg border border-border bg-surface">
+        <div className="mt-6 overflow-x-auto border border-border bg-surface">
           <table className="w-full text-sm">
             <thead>
               <tr className="border-b border-border text-left text-muted">
@@ -137,8 +137,8 @@ export function ExpensesPage() {
         </div>
       </div>
 
-      <div className="h-fit rounded-lg border border-border bg-surface p-5">
-        <h2 className="font-semibold text-foreground">Add Expense</h2>
+      <div className="h-fit border border-border bg-surface p-5">
+        <h2 className="font-display font-semibold text-foreground">Add Expense</h2>
         <form onSubmit={handleCreate} className="mt-4 flex flex-col gap-3">
           <label className="text-sm font-medium text-foreground">
             Category
@@ -206,7 +206,7 @@ export function ExpensesPage() {
           <button
             type="submit"
             disabled={isSubmitting}
-            className="rounded-md bg-primary px-4 py-2 text-sm font-medium text-surface transition hover:bg-primary-600 disabled:opacity-60"
+            className="btn-premium bg-primary text-surface hover:bg-primary-600 disabled:opacity-60"
           >
             {isSubmitting ? "Saving…" : "Add Expense"}
           </button>

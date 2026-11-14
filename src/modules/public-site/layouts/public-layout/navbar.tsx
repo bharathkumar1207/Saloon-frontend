@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import { websiteRoutes } from "../../../../setup/routes";
 import logo from "../../../../assets/logo.png";
 
@@ -16,25 +16,42 @@ export function Navbar() {
 
   return (
     <header className="border-b border-border bg-surface">
-      <nav className="mx-auto flex max-w-6xl items-center justify-between px-4 py-3">
-        <Link to={websiteRoutes.home} className="flex items-center gap-2">
-          <img src={logo} alt="Vismaya" className="h-10 w-10" />
-          <span className="text-xl font-semibold text-foreground">Vismaya</span>
+      <nav className="mx-auto flex max-w-6xl items-center justify-between px-4 py-4">
+        <Link to={websiteRoutes.home} className="flex items-center gap-3 py-1">
+          <img src={logo} alt="Vismaya" className="h-16 w-auto" />
+          <div>
+            <span className="font-display block text-xl font-semibold tracking-wide text-foreground">
+              VISMAYA
+            </span>
+            <span className="flex items-center gap-1.5 text-[0.65rem] font-semibold tracking-[0.2em]">
+              <span className="text-gold-600">V4U</span>
+              <span className="h-px w-3 bg-gold-400" />
+              <span className="h-px w-3 bg-silver-500" />
+            </span>
+          </div>
         </Link>
 
-        <div className="hidden gap-6 text-sm font-medium text-muted md:flex">
+        <div className="hidden gap-8 text-xs font-medium tracking-[0.12em] uppercase md:flex">
           {navLinks.map((link) => (
-            <Link key={link.to} to={link.to}>
+            <NavLink
+              key={link.to}
+              to={link.to}
+              end={link.to === websiteRoutes.home}
+              className={({ isActive }) =>
+                `border-b pb-0.5 transition ${
+                  isActive
+                    ? "border-gold-500 text-foreground"
+                    : "border-transparent text-muted hover:text-foreground"
+                }`
+              }
+            >
               {link.label}
-            </Link>
+            </NavLink>
           ))}
         </div>
 
         <div className="flex items-center gap-2">
-          <Link
-            to={websiteRoutes.booking}
-            className="rounded-md bg-primary px-4 py-2 text-sm font-medium text-surface transition hover:bg-primary-600"
-          >
+          <Link to={websiteRoutes.booking} className="btn-premium bg-primary text-surface hover:bg-primary-600">
             Book Now
           </Link>
           <button
@@ -64,16 +81,21 @@ export function Navbar() {
 
       {isMenuOpen ? (
         <div className="border-t border-border md:hidden">
-          <div className="flex flex-col gap-1 px-4 py-3 text-sm font-medium text-muted">
+          <div className="flex flex-col gap-1 px-4 py-3 text-sm font-medium">
             {navLinks.map((link) => (
-              <Link
+              <NavLink
                 key={link.to}
                 to={link.to}
+                end={link.to === websiteRoutes.home}
                 onClick={() => setIsMenuOpen(false)}
-                className="rounded-md px-2 py-2 hover:bg-background"
+                className={({ isActive }) =>
+                  `px-2 py-2 ${
+                    isActive ? "text-foreground" : "text-muted hover:bg-background"
+                  }`
+                }
               >
                 {link.label}
-              </Link>
+              </NavLink>
             ))}
           </div>
         </div>

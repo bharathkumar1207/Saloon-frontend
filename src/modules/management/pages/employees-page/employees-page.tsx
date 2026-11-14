@@ -3,7 +3,7 @@ import * as employeesApi from "../../../../apis/employees-api";
 import { ApiError } from "../../../../apis/api-client";
 
 const inputClasses =
-  "mt-1 w-full rounded-md border border-border bg-surface px-3 py-2 text-sm text-foreground outline-none focus:border-primary";
+  "mt-1 w-full border border-border bg-surface px-3 py-2 text-sm text-foreground outline-none focus:border-primary";
 
 const emptyForm = {
   name: "",
@@ -88,13 +88,13 @@ export function EmployeesPage() {
     <div>
       <div className="flex items-center justify-between">
         <div>
-          <h1 className="text-2xl font-semibold text-foreground">Employees</h1>
+          <h1 className="font-display text-2xl font-semibold text-foreground">Employees</h1>
           <p className="mt-1 text-sm text-muted">Staff roster — salary, contact, and HR details.</p>
         </div>
         <button
           type="button"
           onClick={() => setShowAddForm((prev) => !prev)}
-          className="rounded-md bg-primary px-4 py-2 text-sm font-medium text-surface transition hover:bg-primary-600"
+          className="btn-premium bg-primary text-surface hover:bg-primary-600"
         >
           {showAddForm ? "Cancel" : "+ Add Employee"}
         </button>
@@ -103,9 +103,9 @@ export function EmployeesPage() {
       {showAddForm ? (
         <form
           onSubmit={handleCreate}
-          className="mt-6 rounded-lg border border-border bg-surface p-5"
+          className="mt-6 border border-border bg-surface p-5"
         >
-          <h2 className="font-semibold text-foreground">New Employee</h2>
+          <h2 className="font-display font-semibold text-foreground">New Employee</h2>
           <div className="mt-4 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
             <label className="text-sm font-medium text-foreground">
               Name
@@ -238,14 +238,14 @@ export function EmployeesPage() {
           <button
             type="submit"
             disabled={isSubmitting}
-            className="mt-4 rounded-md bg-primary px-4 py-2 text-sm font-medium text-surface transition hover:bg-primary-600 disabled:opacity-60"
+            className="btn-premium mt-4 bg-primary text-surface hover:bg-primary-600 disabled:opacity-60"
           >
             {isSubmitting ? "Adding…" : "Add Employee"}
           </button>
         </form>
       ) : null}
 
-      <div className="mt-6 overflow-x-auto rounded-lg border border-border bg-surface">
+      <div className="mt-6 overflow-x-auto border border-border bg-surface">
         <table className="w-full text-sm">
           <thead>
             <tr className="border-b border-border text-left text-muted">

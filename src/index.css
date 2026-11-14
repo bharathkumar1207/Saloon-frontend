@@ -1,46 +1,112 @@
 @import "tailwindcss";
 
 /*
-  Vismaya brand palette — sampled from the logo (copper/gold "V" + deep plum
-  silhouette). This is the only place colors are defined; components should
-  use these tokens (bg-primary, text-foreground, border-border, etc.)
-  instead of Tailwind's default gray/indigo/etc. palettes.
+  Vismaya brand palette — white & black are the main theme; gold and silver
+  are special accents, NOT general UI colors. This is the only place colors
+  are defined.
+    - primary / ink: the neutral black/white UI scale (buttons, nav, borders,
+      prices, generic chrome). Use everywhere by default.
+    - gold: special accent reserved for women's content only.
+    - silver: special accent reserved for men's content only.
 */
 @theme {
-  --color-primary-50: #fbf1e7;
-  --color-primary-100: #f3dcc0;
-  --color-primary-200: #eac59a;
-  --color-primary-300: #e1ad73;
-  --color-primary-400: #d68b48;
-  --color-primary-500: #c37739;
-  --color-primary-600: #aa632d;
-  --color-primary-700: #8f5726;
-  --color-primary-800: #714420;
-  --color-primary-900: #4f2f17;
-  --color-primary: var(--color-primary-500);
+  --color-primary-50: #f5f5f5;
+  --color-primary-100: #e0e0e0;
+  --color-primary-200: #c2c2c2;
+  --color-primary-300: #9e9e9e;
+  --color-primary-400: #757575;
+  --color-primary-500: #4a4a4a;
+  --color-primary-600: #2e2e2e;
+  --color-primary-700: #1a1a1a;
+  --color-primary-800: #0d0d0d;
+  --color-primary-900: #000000;
+  --color-primary: var(--color-primary-700);
 
-  --color-ink-50: #f2eef3;
-  --color-ink-100: #e1d8e3;
-  --color-ink-200: #c2afc7;
-  --color-ink-300: #9b7da3;
-  --color-ink-400: #6e4c79;
-  --color-ink-500: #4a2e52;
-  --color-ink-600: #331b3a;
-  --color-ink-700: #2f1433;
-  --color-ink-800: #22102a;
-  --color-ink-900: #170a1c;
+  --color-ink-50: #f5f5f5;
+  --color-ink-100: #e0e0e0;
+  --color-ink-200: #c2c2c2;
+  --color-ink-300: #9e9e9e;
+  --color-ink-400: #757575;
+  --color-ink-500: #4a4a4a;
+  --color-ink-600: #2e2e2e;
+  --color-ink-700: #1a1a1a;
+  --color-ink-800: #0d0d0d;
+  --color-ink-900: #000000;
   --color-ink: var(--color-ink-700);
 
-  --color-background: #fbf7f2;
+  --color-gold-50: #fbf6e7;
+  --color-gold-100: #f5e9c3;
+  --color-gold-200: #ecd890;
+  --color-gold-300: #e0c35c;
+  --color-gold-400: #d4af37;
+  --color-gold-500: #c9a227;
+  --color-gold-600: #a8822a;
+  --color-gold-700: #8a6a22;
+  --color-gold-800: #6b511b;
+  --color-gold-900: #473614;
+  --color-gold: var(--color-gold-500);
+
+  --color-silver-50: #fafafa;
+  --color-silver-100: #f0f0f0;
+  --color-silver-200: #e4e4e4;
+  --color-silver-300: #d1d1d1;
+  --color-silver-400: #b8b8b8;
+  --color-silver-500: #9c9c9c;
+  --color-silver-600: #7d7d7d;
+  --color-silver-700: #5f5f5f;
+  --color-silver-800: #434343;
+  --color-silver-900: #2a2a2a;
+  --color-silver: var(--color-silver-500);
+
+  --color-background: #ffffff;
   --color-surface: #ffffff;
-  --color-border: #e9dfd3;
+  --color-border: #d9d9d9;
   --color-foreground: var(--color-ink-800);
-  --color-muted: #8a7b72;
+  --color-muted: #7d7d7d;
+
+  --font-display: "Playfair Display", Georgia, serif;
+  --font-sans: "Inter", -apple-system, BlinkMacSystemFont, sans-serif;
 }
 
+/*
+  Editorial, high-contrast tone (think Toni & Guy / premium salon branding):
+  serif display headings, wide-tracked uppercase labels/nav, and sharp
+  (not rounded) primary CTAs. Reach for the .eyebrow / .btn-premium
+  utilities below rather than ad-hoc rounded-full badges or rounded-md
+  buttons when building new brand-facing UI.
+*/
 body {
+  font-family: var(--font-sans);
   background-color: var(--color-background);
   color: var(--color-foreground);
+}
+
+h1,
+h2,
+h3 {
+  font-family: var(--font-display);
+  letter-spacing: -0.01em;
+}
+
+.eyebrow {
+  display: inline-block;
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+}
+
+.btn-premium {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid transparent;
+  padding: 0.85rem 2rem;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease;
 }
 
 @keyframes marquee {
